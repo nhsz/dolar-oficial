@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dólar oficial</title>
+    <meta name="author" content="Nicolas Quiroz">
+    <meta name="description" content="Cotización USD/ARS oficial">
+    <meta name="theme-color" content="#85bb65">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script async src="scripts.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <main class="container">
+        <div id="overlay"></div>
+        <h1 class="header">USD/ARS</h1>
+        <div class="rates">
+          <div class="dollar-buy">
+            <h2>Compra</h2>
+            <div class="buy-rate"></div>
+          </div>
+          <div class="dollar-sell">
+            <h2>Venta</h2>
+            <div class="sell-rate"></div>
+          </div>
+        </div>
+        <div class="footer">
+          <p class="code">
+            <a href="https://github.com/nhsz/dollar" class="code-link"  target="_blank" rel="noopener">&lt;/&gt;</a>
+          </p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
