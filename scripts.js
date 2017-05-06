@@ -15,13 +15,11 @@
   }
 
   setInterval(function () {
-    removeOverlay()
     displayRates(dollarRate.valueBuy, dollarRate.valueSell)
-    console.log(dollarRate.valueBuy)
-    console.log(dollarRate.valueSell)
   }, updateFrequencyInMs)
 
   function displayRates (buyRate, sellRate) {
+    removeOverlay()
     document.querySelector('.buy-rate').innerHTML = buyRate
     document.querySelector('.sell-rate').innerHTML = sellRate
   }
