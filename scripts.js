@@ -1,7 +1,7 @@
 (function main () {
   /* ----------------------------- CONFIG ----------------------------- */
   const dollarApiUrl = 'https://crossorigin.me/https://www.cronista.com/MercadosOnline/json/MercadosGet.html?tipo=monedas&id=All'
-  const updateFrequencyInMs = 500000 // dollar rate updated every 5m
+  const updateFrequencyInMs = 300000 // dollar rate updated every 5m
   /* ------------------------------------------------------------------ */
 
   document.body.classList.add('spinner')
