@@ -1,56 +1,45 @@
 (function main () {
-  /* ----------------------------- CONFIG ------------------- */
-  // dollar rate updated every 2s
-  var updateFrequencyInMs = 1000
+  /* ----------------------------- CONFIG ----------------------------- */
+  // dollar rate updated every 5m
+  const updateFrequencyInMs = 500000
 
   // dollar api url
-  var dollarApiUrl = 'https://api.bluelytics.com.ar/v2/latest'
-  /* -------------------------------------------------------- */
+  const dollarApiUrl = 'https://crossorigin.me/https://www.cronista.com/MercadosOnline/json/MercadosGet.html?tipo=monedas&id=All'
+  /* ------------------------------------------------------------------ */
 
   document.body.classList.add('spinner')
 
   var dollarRate = {
-    valueBuy: getValueBuy(),
-    valueSell: getValueSell()
+    valueBuy: 0,
+    valueSell: 0
   }
 
+  getValues()
+
   setInterval(function () {
-    displayRates(dollarRate.valueBuy, dollarRate.valueSell)
+    getValues()
   }, updateFrequencyInMs)
 
   function displayRates (buyRate, sellRate) {
-    removeOverlay()
     document.querySelector('.buy-rate').innerHTML = buyRate
     document.querySelector('.sell-rate').innerHTML = sellRate
   }
 
-  function getValueBuy () {
+  function getValues () {
     $.ajax({
       type: 'GET',
       url: dollarApiUrl,
-      dataType: 'jsonp',
+      dataType: 'json',
       success: function (data) {
         callback(data)
       }
     })
 
     function callback (data) {
-      dollarRate.valueBuy = data.oficial.value_buy
-    }
-  }
-
-  function getValueSell () {
-    $.ajax({
-      type: 'GET',
-      url: dollarApiUrl,
-      dataType: 'jsonp',
-      success: function (data) {
-        callback(data)
-      }
-    })
-
-    function callback (data) {
-      dollarRate.valueSell = data.oficial.value_sell
+      dollarRate.valueBuy = data.monedas[0].Compra
+      dollarRate.valueSell = data.monedas[0].Venta
+      removeOverlay()
+      displayRates(dollarRate.valueBuy, dollarRate.valueSell)
     }
   }
 
