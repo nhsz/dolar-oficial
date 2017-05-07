@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://cdn.rawgit.com/nhsz/dollar/master/images/readme.png" alt="dollar">
+  <img src="https://cdn.rawgit.com/nhsz/dolar-oficial/master/images/readme.png" alt="dollar">
   <br>
 </h1>
 
