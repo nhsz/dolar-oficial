@@ -1,7 +1,7 @@
 {
-  "name": "Dollar",
-  "short_name": "Dollar",
-  "description": "USD/ARS official rate viewer",
+  "name": "Dólar oficial",
+  "short_name": "Dólar oficial",
+  "description": "Cotización del Dólar oficial en Argentina",
   "display": "standalone",
   "start_url": "index.html",
   "orientation": "portrait",
