@@ -1,47 +1,44 @@
 (function main () {
   /* ----------------------------- CONFIG ----------------------------- */
   const dollarApiUrl = 'https://crossorigin.me/https://www.cronista.com/MercadosOnline/json/MercadosGet.html?tipo=monedas&id=All'
-  const updateFrequencyInMs = 300000 // dollar rate updated every 5m
+  const updateFrequencyInMs = 1000 // dollar rate updated every 5m
   /* ------------------------------------------------------------------ */
-
-  document.body.classList.add('spinner')
 
   var dollarRate = {
     valueBuy: 0,
     valueSell: 0
   }
 
-  getValues()
+  getDollarValues()
+  document.body.classList.add('spinner')
+  var overlayAlreadyRemoved = false
 
   setInterval(function () {
-    getValues()
+    getDollarValues()
   }, updateFrequencyInMs)
+
+  function getDollarValues () {
+    fetch(dollarApiUrl)
+    .then(function (response) {
+      return response.json()
+    }).then(function (json) {
+      dollarRate.valueBuy = json.monedas[0].Compra.toFixed(2)
+      dollarRate.valueSell = json.monedas[0].Venta.toFixed(2)
+      displayRates(dollarRate.valueBuy, dollarRate.valueSell)
+    }).catch(function (error) {
+      console.log(error)
+    })
+  }
 
   function displayRates (buyRate, sellRate) {
     document.querySelector('.buy-rate').innerHTML = buyRate
     document.querySelector('.sell-rate').innerHTML = sellRate
-  }
-
-  function getValues () {
-    $.ajax({
-      type: 'GET',
-      url: dollarApiUrl,
-      dataType: 'json',
-      success: function (data) {
-        callback(data)
-      }
-    })
-
-    function callback (data) {
-      dollarRate.valueBuy = data.monedas[0].Compra
-      dollarRate.valueSell = data.monedas[0].Venta
-      removeOverlay()
-      displayRates(dollarRate.valueBuy, dollarRate.valueSell)
-    }
+    removeOverlay()
+    overlayAlreadyRemoved = true
   }
 
   function removeOverlay () {
-    if ($('#overlay').length !== 0) {
+    if (!overlayAlreadyRemoved) {
       document.querySelector('#overlay').remove()
       document.body.classList.remove('spinner')
     }
