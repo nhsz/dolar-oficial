@@ -120,3 +120,15 @@ a, .code-link {
   font-size: 0.7em;
   margin-top: 50px;
 }
+
+.author {
+  color: #333333;
+  font-size: 0.7em;
+  margin-top: 10px;
+}
+
+.donate {
+  color: #333333;
+  font-size: 0.7em;
+  margin-top: 65px;
+}
