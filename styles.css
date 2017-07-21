@@ -70,7 +70,7 @@ a:hover {
 
 a, .code-link {
   text-decoration: none;
-  color: #3d5e2a;
+  color: #2a5e31;
 }
 
 @keyframes spinner {
@@ -111,11 +111,11 @@ a, .code-link {
   }
 
   .code {
-    margin-top: 75px;
+    margin-top: 50px;
   }
 }
 
-.disclaimer {
+.disclaimer, .donate {
   color: #333333;
   font-size: 0.7em;
   margin-top: 50px;
@@ -125,10 +125,4 @@ a, .code-link {
   color: #333333;
   font-size: 0.7em;
   margin-top: 10px;
-}
-
-.donate {
-  color: #333333;
-  font-size: 0.7em;
-  margin-top: 65px;
 }
