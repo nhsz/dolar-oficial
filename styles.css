@@ -62,12 +62,6 @@ a:hover {
   text-shadow: 2px 1px 2px #487031;
 }
 
-.code {
-  margin-top: 50px;
-  color: #fff;
-  font-size: 1em;
-}
-
 a, .code-link {
   text-decoration: none;
   color: #2a5e31;
@@ -109,16 +103,12 @@ a, .code-link {
   .rates {
     margin: 0;
   }
-
-  .code {
-    margin-top: 50px;
-  }
 }
 
-.disclaimer, .donate {
+.disclaimer {
   color: #333333;
   font-size: 0.7em;
-  margin-top: 50px;
+  margin-top: 75px;
 }
 
 .author {

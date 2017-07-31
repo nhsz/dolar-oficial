@@ -4,20 +4,12 @@
   const updateFrequencyInMs = 1000 * 60 * 30  // dollar rate updated every 30m
   /* ------------------------------------------------------------------ */
 
-  var dollarRate = {
+  let dollarRate = {
     valueBuy: 0,
     valueSell: 0
   }
 
-  getDollarValues()
-  document.body.classList.add('spinner')
-  var overlayAlreadyRemoved = false
-
-  setInterval(function () {
-    getDollarValues()
-  }, updateFrequencyInMs)
-
-  function getDollarValues () {
+  const getDollarValues = () => {
     fetch(dollarApiUrl)
     .then(function (response) {
       return response.json()
@@ -30,14 +22,22 @@
     })
   }
 
-  function displayRates (buyRate, sellRate) {
+  getDollarValues()
+  document.body.classList.add('spinner')
+  let overlayAlreadyRemoved = false
+
+  setInterval(() => {
+    getDollarValues()
+  }, updateFrequencyInMs)
+
+  const displayRates = (buyRate, sellRate) => {
     document.querySelector('.buy-rate').innerHTML = buyRate
     document.querySelector('.sell-rate').innerHTML = sellRate
     removeOverlay()
     overlayAlreadyRemoved = true
   }
 
-  function removeOverlay () {
+  const removeOverlay = () => {
     if (!overlayAlreadyRemoved) {
       document.querySelector('#overlay').remove()
       document.body.classList.remove('spinner')
