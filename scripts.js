@@ -1,6 +1,6 @@
 (function main () {
   /* ----------------------------- CONFIG ----------------------------- */
-  const dollarApiUrl = 'https://crossorigin.me/https://www.cronista.com/MercadosOnline/json/MercadosGet.html?tipo=monedas&id=All'
+  const dollarApiUrl = 'https://crossorig.in/https://www.cronista.com/MercadosOnline/json/MercadosGet.html?tipo=monedas&id=All'
   const updateFrequencyInMs = 1000 * 60 * 30  // dollar rate updated every 30m
   /* ------------------------------------------------------------------ */
 
