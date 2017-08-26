@@ -1,6 +1,6 @@
 (function main () {
   /* ----------------------------- CONFIG ----------------------------- */
-  const dollarApiUrl = 'https://crossorig.in/https://www.cronista.com/MercadosOnline/json/MercadosGet.html?tipo=monedas&id=All'
+  const dollarApiUrl = 'https://crossorig.in/https://crossorig.in/https://www.cronista.com/MercadosOnline/json/MercadosGet.html?tipo=Monedas&id=ARS'
   const updateFrequencyInMs = 1000 * 60 * 30  // dollar rate updated every 30m
   /* ------------------------------------------------------------------ */
 
@@ -14,8 +14,8 @@
     .then(function (response) {
       return response.json()
     }).then(function (json) {
-      dollarRate.valueBuy = json.monedas[0].Compra.toFixed(2)
-      dollarRate.valueSell = json.monedas[0].Venta.toFixed(2)
+      dollarRate.valueBuy = json.monedas.Compra.toFixed(2)
+      dollarRate.valueSell = json.monedas.Venta.toFixed(2)
       displayRates(dollarRate.valueBuy, dollarRate.valueSell)
     }).catch(function (error) {
       console.log(error)
